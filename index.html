@@ -32,7 +32,7 @@ nav a {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 980px;
   margin: auto;
   padding: 30px;
 }
@@ -55,6 +55,90 @@ h2 {
   border-radius: 8px;
   font-family: monospace;
   white-space: pre-line;
+}
+
+.visual-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.visual-card {
+  background: linear-gradient(180deg, #f9fbfd, #edf3f8);
+  border: 1px solid #d9e2ea;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.visual-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.visual-card p {
+  margin: 10px 0 0;
+  font-size: 14px;
+}
+
+.visual-card svg {
+  width: 100%;
+  height: 130px;
+}
+
+.flow-diagram {
+  margin-top: 18px;
+  background: #0f1720;
+  color: #f8fbff;
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.flow-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.flow-node {
+  flex: 1 1 140px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.flow-node svg {
+  width: 100%;
+  max-width: 140px;
+  height: 92px;
+}
+
+.flow-arrow {
+  font-size: 30px;
+  color: #8fd3ff;
+}
+
+.flow-label {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.cost-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.cost-card {
+  background: #fbfcfe;
+  border: 1px solid #dbe3ea;
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.cost-card h3 {
+  margin-top: 0;
 }
 
 table {
@@ -101,15 +185,86 @@ footer {
 
 <p>It feels like a traditional landline, but instead of using the telephone company it uses your home internet.</p>
 
-<div class="diagram">Old phone
-↓
-OBi200 adapter
-↓
-Home router / internet
-↓
-VoIP.ms
-↓
-Mom, Dad, Grandma</div>
+<div class="visual-grid">
+<div class="visual-card">
+<h3>1. Old slimline phone</h3>
+<svg viewBox="0 0 220 130" role="img" aria-label="Old slimline phone illustration">
+<rect x="28" y="48" width="164" height="48" rx="12" fill="#d73d32"/>
+<rect x="56" y="28" width="108" height="28" rx="14" fill="#f05b4f"/>
+<rect x="70" y="63" width="80" height="18" rx="6" fill="#f5d7d5"/>
+<circle cx="88" cy="72" r="3" fill="#b62f26"/>
+<circle cx="110" cy="72" r="3" fill="#b62f26"/>
+<circle cx="132" cy="72" r="3" fill="#b62f26"/>
+<path d="M48 100 C68 112, 152 112, 172 100" stroke="#7a201a" stroke-width="4" fill="none"/>
+</svg>
+<p>A basic corded house phone gives kids a familiar handset and big physical buttons.</p>
+</div>
+
+<div class="visual-card">
+<h3>2. ObiHai as the phone jack</h3>
+<svg viewBox="0 0 220 130" role="img" aria-label="VoIP adapter illustration">
+<rect x="34" y="34" width="152" height="64" rx="12" fill="#dde5ec" stroke="#8d9aa6"/>
+<rect x="52" y="52" width="42" height="14" rx="3" fill="#434f5a"/>
+<rect x="126" y="52" width="42" height="14" rx="3" fill="#434f5a"/>
+<text x="73" y="47" text-anchor="middle" font-size="10" fill="#47525d">PHONE</text>
+<text x="147" y="47" text-anchor="middle" font-size="10" fill="#47525d">LAN</text>
+<circle cx="56" cy="83" r="4" fill="#44b749"/>
+<text x="68" y="87" font-size="11" fill="#47525d">Acts like a wall jack</text>
+</svg>
+<p>The OBi200 replaces the old phone company line and gives your phone dial tone.</p>
+</div>
+
+<div class="visual-card">
+<h3>3. Internet phone path</h3>
+<svg viewBox="0 0 220 130" role="img" aria-label="Internet phone path illustration">
+<circle cx="48" cy="65" r="24" fill="#8dc7ff"/>
+<path d="M30 65 H66 M48 47 V83 M36 53 C52 59, 52 71, 36 77 M60 53 C44 59, 44 71, 60 77" stroke="#1b5f95" stroke-width="2" fill="none"/>
+<rect x="100" y="48" width="34" height="34" rx="6" fill="#dce5ed"/>
+<path d="M134 65 H167" stroke="#1b5f95" stroke-width="4"/>
+<path d="M159 57 L171 65 L159 73" fill="none" stroke="#1b5f95" stroke-width="4"/>
+<rect x="170" y="44" width="28" height="42" rx="8" fill="#2a3440"/>
+<circle cx="184" cy="76" r="3" fill="#7bdcff"/>
+</svg>
+<p>Your calls travel through your home internet and ring a cell phone or family member anywhere.</p>
+</div>
+</div>
+
+<div class="flow-diagram">
+<div class="flow-row">
+<div class="flow-node">
+<svg viewBox="0 0 140 92" role="img" aria-hidden="true">
+<rect x="18" y="38" width="104" height="30" rx="10" fill="#d73d32"/>
+<rect x="38" y="20" width="64" height="22" rx="11" fill="#f05b4f"/>
+</svg>
+<div class="flow-label">Slimline phone</div>
+</div>
+<div class="flow-arrow">&gt;</div>
+<div class="flow-node">
+<svg viewBox="0 0 140 92" role="img" aria-hidden="true">
+<rect x="18" y="26" width="104" height="42" rx="10" fill="#dde5ec" stroke="#8d9aa6"/>
+<rect x="32" y="42" width="26" height="10" rx="2" fill="#434f5a"/>
+<rect x="82" y="42" width="26" height="10" rx="2" fill="#434f5a"/>
+</svg>
+<div class="flow-label">OBi200 adapter</div>
+</div>
+<div class="flow-arrow">&gt;</div>
+<div class="flow-node">
+<svg viewBox="0 0 140 92" role="img" aria-hidden="true">
+<circle cx="70" cy="46" r="24" fill="#8dc7ff"/>
+<path d="M52 46 H88 M70 28 V64 M58 34 C74 40, 74 52, 58 58 M82 34 C66 40, 66 52, 82 58" stroke="#1b5f95" stroke-width="2" fill="none"/>
+</svg>
+<div class="flow-label">Home internet</div>
+</div>
+<div class="flow-arrow">&gt;</div>
+<div class="flow-node">
+<svg viewBox="0 0 140 92" role="img" aria-hidden="true">
+<rect x="46" y="20" width="48" height="54" rx="10" fill="#2a3440"/>
+<circle cx="70" cy="62" r="3" fill="#7bdcff"/>
+</svg>
+<div class="flow-label">Family phones</div>
+</div>
+</div>
+</div>
 
 </section>
 
@@ -132,7 +287,7 @@ Mom, Dad, Grandma</div>
 <h2>What you need</h2>
 
 <ul>
-<li>Old house phone (corded or cordless)</li>
+<li>Old house phone, ideally a slimline or other simple corded set</li>
 <li>Polycom OBi200 VoIP adapter</li>
 <li>Internet router</li>
 <li>VoIP.ms account</li>
@@ -144,14 +299,18 @@ Mom, Dad, Grandma</div>
 
 <h2>How the system works</h2>
 
-<div class="diagram">Phone
-↓
-OBi200
-↓
-Router
-↓
-VoIP.ms
-↓
+<div class="diagram">Old phone
+|
+v
+OBi200 adapter
+|
+v
+Router and internet
+|
+v
+VoIP.ms account
+|
+v
 Other phone</div>
 
 <p>The OBi200 acts like the phone company. It powers the phone and converts the call into internet data.</p>
@@ -164,13 +323,13 @@ Other phone</div>
 
 <div class="step">
 <b>1. Create a VoIP.ms account</b><br>
-Sign up at voip.ms and add prepaid credit. Buy a phone number.
+Sign up at voip.ms, add prepaid credit, and buy a phone number.
 </div>
 
 <div class="step">
 <b>2. Connect the hardware</b>
 
-<div class="diagram">Phone → OBi200 → Router</div>
+<div class="diagram">Phone -> OBi200 -> Router</div>
 
 Plug the phone cable into the OBi200 phone port, connect ethernet to your router, and plug in power.
 </div>
@@ -222,13 +381,16 @@ password: admin</div>
 
 <h2>Cost</h2>
 
+<div class="cost-grid">
+<div class="cost-card">
+<h3>Initial setup cost</h3>
 <table>
 <tr>
 <th>Item</th>
 <th>Typical Cost</th>
 </tr>
 <tr>
-<td>Old phone</td>
+<td>Old slimline phone</td>
 <td>$10 - $30</td>
 </tr>
 <tr>
@@ -236,10 +398,38 @@ password: admin</div>
 <td>$25 - $60</td>
 </tr>
 <tr>
-<td>VoIP.ms monthly cost</td>
-<td>~$1 - $3</td>
+<td>VoIP.ms account funding</td>
+<td>$10 starting credit</td>
+</tr>
+<tr>
+<td><b>Total to get started</b></td>
+<td><b>About $45 - $100</b></td>
 </tr>
 </table>
+</div>
+
+<div class="cost-card">
+<h3>Recurring cost</h3>
+<table>
+<tr>
+<th>Item</th>
+<th>Typical Cost</th>
+</tr>
+<tr>
+<td>VoIP.ms phone number</td>
+<td>About $1 per month</td>
+</tr>
+<tr>
+<td>Light calling usage</td>
+<td>About $1 - $3 per month</td>
+</tr>
+<tr>
+<td><b>Ongoing total</b></td>
+<td><b>Usually $2 - $4 per month</b></td>
+</tr>
+</table>
+</div>
+</div>
 
 </section>
 
@@ -249,10 +439,10 @@ password: admin</div>
 
 <p>Add speed dial buttons so kids can easily call family.</p>
 
-<div class="diagram">1 → Mom
-2 → Dad
-3 → Grandma
-4 → Grandpa</div>
+<div class="diagram">1 -> Mom
+2 -> Dad
+3 -> Grandma
+4 -> Grandpa</div>
 
 <p>You can also tape a small contact card next to the phone.</p>
 
