@@ -93,6 +93,12 @@ h2 {
   display: block;
 }
 
+.photo-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
 .flow-diagram {
   margin-top: 18px;
   background: #0f1720;
@@ -195,7 +201,10 @@ footer {
 <div class="visual-grid">
 <div class="visual-card">
 <h3>1. Old slimline phone</h3>
+<div class="photo-pair">
 <img src="trimline.webp" alt="Blue trimline phone">
+<img src="trimline2.webp" alt="Trimline phone with speed dial buttons">
+</div>
 <p>A basic corded house phone gives kids a familiar handset and big physical buttons.</p>
 </div>
 
