@@ -2,560 +2,956 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>DIY Kids House Phone Guide</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kids House Phone: A DIY House Phone for Kids</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
-  margin: 0;
-  background: #f5f7fa;
-  color: #222;
-  line-height: 1.6;
-}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-header {
-  background: #111;
-  color: white;
-  padding: 20px 30px;
-}
+  :root {
+    --cream: #faf8f3;
+    --cream-mid: #f2efe6;
+    --cream-dark: #e8e3d8;
+    --green: #2d5a1b;
+    --green-light: #e6f0df;
+    --green-mid: #4a8033;
+    --brown: #1c1610;
+    --brown-mid: #57503e;
+    --brown-light: #a09880;
+    --white: #ffffff;
+    --serif: 'Lora', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
 
-header h1 {
-  margin: 0;
-  font-size: 28px;
-}
+  html { scroll-behavior: smooth; }
 
-nav a {
-  color: #ddd;
-  margin-right: 20px;
-  text-decoration: none;
-}
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--brown);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
 
-.container {
-  max-width: 980px;
-  margin: auto;
-  padding: 30px;
-}
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 248, 243, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--cream-dark);
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
 
-section {
-  background: white;
-  padding: 25px;
-  margin-bottom: 25px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-}
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--brown);
+  }
 
-h2 {
-  margin-top: 0;
-}
+  .nav-logo-mark {
+    width: 32px;
+    height: 32px;
+    background: var(--green-light);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    border: 1px solid rgba(45, 90, 27, 0.15);
+  }
 
-.diagram {
-  background: #f0f3f7;
-  padding: 15px;
-  border-radius: 8px;
-  font-family: monospace;
-  white-space: pre-line;
-}
+  .nav-logo-text {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
 
-.visual-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-  margin-top: 18px;
-}
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
 
-.visual-card {
-  background: linear-gradient(180deg, #f9fbfd, #edf3f8);
-  border: 1px solid #d9e2ea;
-  border-radius: 14px;
-  padding: 16px;
-}
+  .nav-links a {
+    font-size: 13.5px;
+    font-weight: 400;
+    color: var(--brown-mid);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
 
-.visual-card h3 {
-  margin: 0 0 10px;
-  font-size: 18px;
-}
+  .nav-links a:hover { color: var(--green); }
 
-.visual-card p {
-  margin: 10px 0 0;
-  font-size: 14px;
-}
+  /* ── HERO ── */
+  .hero {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 72px 32px 60px;
+    position: relative;
+  }
 
-.visual-card svg {
-  width: 100%;
-  height: 130px;
-}
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--green-mid);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 20px;
+  }
 
-.visual-card img {
-  width: 100%;
-  height: 130px;
-  object-fit: contain;
-  display: block;
-}
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: var(--green-mid);
+  }
 
-.photo-pair {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
+  .hero-h {
+    font-family: var(--serif);
+    font-size: clamp(36px, 6vw, 52px);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--brown);
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
 
-.flow-diagram {
-  margin-top: 18px;
-  background: #0f1720;
-  color: #f8fbff;
-  border-radius: 14px;
-  padding: 18px;
-}
+  .hero-h em {
+    font-style: italic;
+    color: var(--green);
+  }
 
-.flow-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
+  .hero-sub {
+    font-size: 16.5px;
+    color: var(--brown-mid);
+    line-height: 1.75;
+    max-width: 520px;
+    margin-bottom: 32px;
+  }
 
-.flow-node {
-  flex: 1 1 140px;
-  min-width: 120px;
-  text-align: center;
-}
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
 
-.flow-node svg {
-  width: 100%;
-  max-width: 140px;
-  height: 92px;
-}
+  .btn-primary {
+    display: inline-block;
+    background: var(--green);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 11px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: background 0.2s, transform 0.15s;
+  }
 
-.flow-arrow {
-  font-size: 30px;
-  color: #8fd3ff;
-}
+  .btn-primary:hover { background: var(--green-mid); transform: translateY(-1px); }
 
-.flow-label {
-  margin-top: 8px;
-  font-size: 14px;
-}
+  .hero-secondary {
+    font-size: 14px;
+    color: var(--green);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
 
-.cost-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
+  /* ── PHONE ILLUSTRATION ── */
+  .hero-illustration {
+    display: flex;
+    justify-content: center;
+    margin: 48px 0 0;
+  }
 
-.cost-card {
-  background: #fbfcfe;
-  border: 1px solid #dbe3ea;
-  border-radius: 12px;
-  padding: 18px;
-}
+  .hero-phone-img {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--cream-dark);
+    position: relative;
+    background: #f0ece4;
+  }
 
-.cost-card h3 {
-  margin-top: 0;
-}
+  .hero-phone-img img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+  }
 
-.buy-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-}
+  .hero-phone-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 32px 20px 16px;
+    background: linear-gradient(to top, rgba(28,22,16,0.65) 0%, transparent 100%);
+    color: rgba(255,255,255,0.9);
+    font-size: 13px;
+    font-weight: 400;
+  }
 
-.buy-card {
-  background: #fbfcfe;
-  border: 1px solid #dbe3ea;
-  border-radius: 12px;
-  padding: 18px;
-}
+  .phone-diagram {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: white;
+    border: 1px solid var(--cream-dark);
+    border-radius: 16px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 560px;
+  }
 
-.buy-card img {
-  width: 100%;
-  height: 170px;
-  object-fit: contain;
-  display: block;
-  margin-bottom: 12px;
-  background: white;
-  border-radius: 10px;
-}
+  .phone-step {
+    flex: 1;
+    padding: 20px 16px;
+    text-align: center;
+    border-right: 1px solid var(--cream-dark);
+    position: relative;
+  }
 
-.buy-card h3 {
-  margin: 0 0 8px;
-  font-size: 17px;
-}
+  .phone-step:last-child { border-right: none; }
 
-.buy-card a {
-  color: #0a5db1;
-  text-decoration: none;
-  font-weight: 600;
-}
+  .phone-step-icon {
+    font-size: 26px;
+    margin-bottom: 8px;
+    display: block;
+  }
 
-.buy-card a:hover {
-  text-decoration: underline;
-}
+  .phone-step-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--brown);
+    display: block;
+    margin-bottom: 3px;
+  }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
+  .phone-step-sub {
+    font-size: 11px;
+    color: var(--brown-light);
+    line-height: 1.4;
+  }
 
-th, td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-  text-align: left;
-}
+  .arrow {
+    font-size: 14px;
+    color: var(--green-mid);
+    padding: 0 2px;
+  }
 
-.step {
-  margin-bottom: 15px;
-}
+  .part-photo {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    display: block;
+    background: var(--cream-mid);
+  }
 
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #777;
-}
+  /* ── STATS ── */
+  .stats-strip {
+    border-top: 1px solid var(--cream-dark);
+    border-bottom: 1px solid var(--cream-dark);
+    background: var(--white);
+    display: flex;
+  }
+
+  .stat {
+    flex: 1;
+    padding: 24px 28px;
+    border-right: 1px solid var(--cream-dark);
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-val {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--brown);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--brown-light);
+    font-weight: 400;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 32px;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--brown-light);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 6px;
+  }
+
+  .section-h {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--brown);
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+    line-height: 1.3;
+  }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--cream-dark);
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  /* ── PARTS GRID ── */
+  .parts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .part-card {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 12px;
+    padding: 20px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .part-card:hover {
+    border-color: rgba(45, 90, 27, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .part-icon {
+    font-size: 24px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .part-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--brown);
+    margin-bottom: 5px;
+  }
+
+  .part-note {
+    font-size: 13px;
+    color: var(--brown-light);
+    line-height: 1.55;
+  }
+
+  .part-tag {
+    display: inline-block;
+    margin-top: 10px;
+    background: var(--green-light);
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+
+  /* ── STEPS ── */
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step {
+    display: flex;
+    gap: 20px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--cream-dark);
+    align-items: flex-start;
+  }
+
+  .step:last-child { border-bottom: none; }
+
+  .step-num {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--green-light);
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+    border: 1px solid rgba(45, 90, 27, 0.15);
+  }
+
+  .step-body {}
+
+  .step-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--brown);
+    margin-bottom: 4px;
+  }
+
+  .step-desc {
+    font-size: 14px;
+    color: var(--brown-mid);
+    line-height: 1.65;
+  }
+
+  .step-code {
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    background: var(--cream-mid);
+    border: 1px solid var(--cream-dark);
+    padding: 1px 7px;
+    border-radius: 5px;
+    color: var(--brown);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── COST ── */
+  .cost-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .cost-block {
+    background: var(--white);
+    border: 1px solid var(--cream-dark);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .cost-block-header {
+    padding: 14px 20px;
+    background: var(--cream-mid);
+    border-bottom: 1px solid var(--cream-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cost-block-badge {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--green-mid);
+    background: var(--green-light);
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+  }
+
+  .cost-rows { padding: 8px 0; }
+
+  .cost-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 9px 20px;
+    font-size: 13.5px;
+    color: var(--brown-mid);
+    border-bottom: 1px solid var(--cream-mid);
+  }
+
+  .cost-row:last-child { border-bottom: none; }
+
+  .cost-row-val {
+    font-weight: 500;
+    color: var(--brown);
+  }
+
+  .cost-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--brown);
+    border-top: 1px solid var(--cream-dark);
+    background: var(--cream-mid);
+  }
+
+  .cost-total-val {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--green);
+  }
+
+  /* ── SPEED DIAL TIP ── */
+  .tip-box {
+    background: var(--green-light);
+    border: 1px solid rgba(45, 90, 27, 0.2);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-top: 32px;
+  }
+
+  .tip-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--green-mid);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+
+  .tip-title {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--green);
+    margin-bottom: 8px;
+  }
+
+  .tip-desc {
+    font-size: 14px;
+    color: #3a5c27;
+    line-height: 1.65;
+  }
+
+  .speed-dials {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+
+  .speed-dial {
+    background: white;
+    border: 1px solid rgba(45, 90, 27, 0.2);
+    border-radius: 8px;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .speed-dial-num {
+    width: 22px;
+    height: 22px;
+    background: var(--green);
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .speed-dial-name {
+    font-size: 13px;
+    color: var(--green);
+    font-weight: 500;
+  }
+
+  /* ── FAQ ── */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faq-item {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--cream-dark);
+    cursor: pointer;
+  }
+
+  .faq-item:first-child { border-top: 1px solid var(--cream-dark); }
+
+  .faq-q {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--brown);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    user-select: none;
+  }
+
+  .faq-toggle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--cream-mid);
+    color: var(--brown-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    transition: background 0.2s, transform 0.25s;
+  }
+
+  .faq-item.open .faq-toggle {
+    background: var(--green-light);
+    color: var(--green);
+    transform: rotate(45deg);
+  }
+
+  .faq-a {
+    font-size: 14px;
+    color: var(--brown-mid);
+    line-height: 1.7;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding-top 0.2s;
+  }
+
+  .faq-item.open .faq-a {
+    max-height: 200px;
+    padding-top: 10px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--brown);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 36px 32px;
+  }
+
+  footer .footer-logo {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 8px;
+  }
+
+  footer p { font-size: 13px; line-height: 1.6; }
+
+  footer a { color: rgba(255,255,255,0.6); text-underline-offset: 3px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.5s ease both; }
+  .hero-h       { animation: fadeUp 0.55s 0.07s ease both; }
+  .hero-sub     { animation: fadeUp 0.55s 0.14s ease both; }
+  .hero-actions { animation: fadeUp 0.55s 0.2s ease both; }
+  .hero-illustration { animation: fadeUp 0.6s 0.28s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .hero { padding: 48px 20px 40px; }
+    .section { padding: 44px 20px; }
+    .parts-grid { grid-template-columns: 1fr; }
+    .cost-cols { grid-template-columns: 1fr; }
+    .stats-strip { flex-wrap: wrap; }
+    .stat { min-width: 50%; border-right: none; border-bottom: 1px solid var(--cream-dark); }
+    .phone-diagram { flex-direction: column; }
+    .phone-step { border-right: none; border-bottom: 1px solid var(--cream-dark); }
+  }
 </style>
 </head>
-
 <body>
 
-<header>
-<h1>DIY Kids House Phone</h1>
 <nav>
-<a href="#why">Why</a>
-<a href="#setup">Setup</a>
-<a href="#cost">Cost</a>
-<a href="#faq">FAQ</a>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-mark">📞</div>
+    <span class="nav-logo-text">Kids House Phone</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#why">Why</a></li>
+    <li><a href="#cost">Cost</a></li>
+    <li><a href="#parts">What you need</a></li>
+    <li><a href="#setup">Setup</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
 </nav>
-</header>
 
-<div class="container">
+<!-- HERO -->
+<section class="hero" id="why">
+  <div class="hero-eyebrow">Simple DIY guide</div>
+  <h1 class="hero-h">Connected at home,<br><em>without the screen time</em></h1>
+  <p class="hero-sub">No smartphone. No apps. Just a real corded phone that lets your kids call family, using your home internet for about $2 a month.</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="#setup">Read the setup guide</a>
+    <a class="hero-secondary" href="#cost">See the cost →</a>
+  </div>
 
-<section id="intro">
-<h2>A simple house phone for kids</h2>
-
-<p>This project lets you create a normal house phone for your kids using a regular phone, a small adapter box, and a cheap internet phone provider.</p>
-
-<p>It feels like a traditional landline, but instead of using the telephone company it uses your home internet.</p>
-
-<div class="visual-grid">
-<div class="visual-card">
-<h3>1. Old slimline phone</h3>
-<div class="photo-pair">
-<img src="trimline2.webp" alt="Trimline phone with speed dial buttons">
-<img src="trimline.webp" alt="Blue trimline phone">
-</div>
-<p>A basic corded house phone gives kids a familiar handset and big physical buttons.</p>
-</div>
-
-<div class="visual-card">
-<h3>2. ObiHai as the phone jack</h3>
-<svg viewBox="0 0 220 130" role="img" aria-label="VoIP adapter illustration">
-<rect x="34" y="34" width="152" height="64" rx="12" fill="#dde5ec" stroke="#8d9aa6"/>
-<rect x="52" y="52" width="42" height="14" rx="3" fill="#434f5a"/>
-<rect x="126" y="52" width="42" height="14" rx="3" fill="#434f5a"/>
-<text x="73" y="47" text-anchor="middle" font-size="10" fill="#47525d">PHONE</text>
-<text x="147" y="47" text-anchor="middle" font-size="10" fill="#47525d">LAN</text>
-<circle cx="56" cy="83" r="4" fill="#44b749"/>
-<text x="68" y="87" font-size="11" fill="#47525d">Acts like a wall jack</text>
-</svg>
-<p>The OBi200 replaces the old phone company line and gives your phone dial tone.</p>
-</div>
-
-<div class="visual-card">
-<h3>3. Internet phone path</h3>
-<svg viewBox="0 0 220 130" role="img" aria-label="Internet phone path illustration">
-<circle cx="48" cy="65" r="24" fill="#8dc7ff"/>
-<path d="M30 65 H66 M48 47 V83 M36 53 C52 59, 52 71, 36 77 M60 53 C44 59, 44 71, 60 77" stroke="#1b5f95" stroke-width="2" fill="none"/>
-<rect x="100" y="48" width="34" height="34" rx="6" fill="#dce5ed"/>
-<path d="M134 65 H167" stroke="#1b5f95" stroke-width="4"/>
-<path d="M159 57 L171 65 L159 73" fill="none" stroke="#1b5f95" stroke-width="4"/>
-<rect x="170" y="44" width="28" height="42" rx="8" fill="#2a3440"/>
-<circle cx="184" cy="76" r="3" fill="#7bdcff"/>
-</svg>
-<p>Your calls travel through your home internet and ring a cell phone or family member anywhere.</p>
-</div>
-</div>
-
-<div class="flow-diagram">
-<div class="flow-row">
-<div class="flow-node">
-<svg viewBox="0 0 140 92" role="img" aria-hidden="true">
-<rect x="18" y="38" width="104" height="30" rx="10" fill="#d73d32"/>
-<rect x="38" y="20" width="64" height="22" rx="11" fill="#f05b4f"/>
-</svg>
-<div class="flow-label">Slimline phone</div>
-</div>
-<div class="flow-arrow">&gt;</div>
-<div class="flow-node">
-<svg viewBox="0 0 140 92" role="img" aria-hidden="true">
-<rect x="18" y="26" width="104" height="42" rx="10" fill="#dde5ec" stroke="#8d9aa6"/>
-<rect x="32" y="42" width="26" height="10" rx="2" fill="#434f5a"/>
-<rect x="82" y="42" width="26" height="10" rx="2" fill="#434f5a"/>
-</svg>
-<div class="flow-label">OBi200 adapter</div>
-</div>
-<div class="flow-arrow">&gt;</div>
-<div class="flow-node">
-<svg viewBox="0 0 140 92" role="img" aria-hidden="true">
-<circle cx="70" cy="46" r="24" fill="#8dc7ff"/>
-<path d="M52 46 H88 M70 28 V64 M58 34 C74 40, 74 52, 58 58 M82 34 C66 40, 66 52, 82 58" stroke="#1b5f95" stroke-width="2" fill="none"/>
-</svg>
-<div class="flow-label">Home internet</div>
-</div>
-<div class="flow-arrow">&gt;</div>
-<div class="flow-node">
-<svg viewBox="0 0 140 92" role="img" aria-hidden="true">
-<rect x="46" y="20" width="48" height="54" rx="10" fill="#2a3440"/>
-<circle cx="70" cy="62" r="3" fill="#7bdcff"/>
-</svg>
-<div class="flow-label">Family phones</div>
-</div>
-</div>
-</div>
-
+  <div class="hero-illustration">
+    <div class="hero-phone-img">
+      <img src="https://patterntrader.github.io/TinCan/herophone.png" alt="Corded house phone with large buttons">
+      <div class="hero-phone-caption">A classic corded phone. The kind kids actually remember how to use.</div>
+    </div>
+  </div>
 </section>
 
-<section id="why">
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat">
+    <div class="stat-val">~30 min</div>
+    <div class="stat-label">Total setup time</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val">$1–3</div>
+    <div class="stat-label">Per month</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val">~$50</div>
+    <div class="stat-label">One-time cost</div>
+  </div>
+  <div class="stat">
+    <div class="stat-val">3 parts</div>
+    <div class="stat-label">To buy</div>
+  </div>
+</div>
 
-<h2>Why parents like this setup</h2>
+<!-- PARTS -->
+<hr class="section-divider">
 
-<ul>
-<li>No smartphone required</li>
-<li>Kids can call friends &amp; family easily</li>
-<li>Very cheap compared to a landline</li>
-<li>Works with any old phone</li>
-<li>Feels like a normal house phone</li>
-</ul>
-
+<!-- COST -->
+<section class="section" id="cost">
+  <div class="section-eyebrow">Cost breakdown</div>
+  <h2 class="section-h">What you'll spend</h2>
+  <div class="cost-cols">
+    <div class="cost-block">
+      <div class="cost-block-header">
+        <span class="cost-block-badge">One-time</span>
+      </div>
+      <div class="cost-rows">
+        <div class="cost-row">
+          <span>Old corded phone</span>
+          <span class="cost-row-val">$10–20</span>
+        </div>
+        <div class="cost-row">
+          <span>Analog Telephone Adapter (ATA)</span>
+          <span class="cost-row-val">$25–50</span>
+        </div>
+        <div class="cost-row">
+          <span>VoIP.ms starting credit</span>
+          <span class="cost-row-val">$10</span>
+        </div>
+      </div>
+      <div class="cost-total">
+        <span>Total to get started</span>
+        <span class="cost-total-val">~$50</span>
+      </div>
+    </div>
+    <div class="cost-block">
+      <div class="cost-block-header">
+        <span class="cost-block-badge">Monthly</span>
+      </div>
+      <div class="cost-rows">
+        <div class="cost-row">
+          <span>Phone number rental</span>
+          <span class="cost-row-val">~$1</span>
+        </div>
+        <div class="cost-row">
+          <span>Light call usage</span>
+          <span class="cost-row-val">$1–2</span>
+        </div>
+        <div class="cost-row" style="color: transparent; user-select: none;">
+          <span>—</span>
+          <span>—</span>
+        </div>
+      </div>
+      <div class="cost-total">
+        <span>Ongoing total</span>
+        <span class="cost-total-val">$1–3 / mo</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="setup">
-
-<h2>What you need</h2>
-
-<ul>
-<li>Old house phone, ideally a slimline or other simple corded set</li>
-<li>Polycom OBi200 VoIP adapter</li>
-<li>Internet router</li>
-<li>VoIP.ms account</li>
-</ul>
-
+<section class="section" id="parts">
+  <div class="section-eyebrow">What you need</div>
+  <h2 class="section-h">Three things to get started</h2>
+  <div class="parts-grid">
+    <div class="part-card">
+      <img class="part-photo" src="https://patterntrader.github.io/TinCan/cordedphone.png" alt="AT&T corded trimline phone">
+      <div class="part-name">Corded house phone</div>
+      <div class="part-note">Any old slimline or trimline style with a handset. Speed-dial buttons are a great bonus for kids.</div>
+      <span class="part-tag">$10–20 on eBay</span>
+    </div>
+    <div class="part-card">
+      <img class="part-photo" src="https://patterntrader.github.io/TinCan/ata.png" alt="Grandstream ATA analog telephone adapter">
+      <div class="part-name">ATA (Analog Telephone Adapter)</div>
+      <div class="part-note">An ATA is a small box that connects your old corded phone to the internet, replacing the traditional phone company wall jack. It converts your voice into internet data so you can make real calls over your home connection.</div>
+      <span class="part-tag">$25–50 on Amazon</span>
+    </div>
+    <div class="part-card">
+      <img class="part-photo" src="https://patterntrader.github.io/TinCan/voipms.png" alt="VoIP.ms logo">
+      <div class="part-name">VoIP.ms account</div>
+      <div class="part-note">A cheap internet phone provider. Sign up, add $10 credit, and you get a real phone number.</div>
+      <span class="part-tag">~$1/month</span>
+    </div>
+    <div class="part-card">
+      <img class="part-photo" src="https://images.pexels.com/photos/4218546/pexels-photo-4218546.jpeg?auto=compress&cs=tinysrgb&w=560&h=240&fit=crop" alt="White wifi router with antennas">
+      <div class="part-name">Home router</div>
+      <div class="part-note">The ATA plugs straight into your existing router with an ethernet cable. No extra hardware needed.</div>
+      <span class="part-tag">You already have this</span>
+    </div>
+  </div>
 </section>
 
-<section>
+<hr class="section-divider">
 
-<h2>How the system works</h2>
+<!-- SETUP -->
+<section class="section" id="setup">
+  <div class="section-eyebrow">Step-by-step setup</div>
+  <h2 class="section-h">Six steps, start to finish</h2>
+  <div class="steps-list">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Create a VoIP.ms account</div>
+        <div class="step-desc">Sign up at <a href="https://voip.ms" style="color: var(--green);">voip.ms</a>, add $10 prepaid credit, and buy a phone number for the house. Pick any local area code you like.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Connect the hardware</div>
+        <div class="step-desc">Plug the phone's cord into the <strong>Phone</strong> port on the ATA. Run an ethernet cable from the ATA's <strong>LAN</strong> port into your router. Plug in power.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Find the adapter's IP address</div>
+        <div class="step-desc">Pick up the handset and dial <span class="step-code">***1</span>. The ATA will read an IP address aloud. Write it down.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Open the settings page</div>
+        <div class="step-desc">Type that IP address into any browser on your home network. Log in with username <span class="step-code">admin</span> and password <span class="step-code">admin</span>.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">Enter your VoIP.ms credentials</div>
+        <div class="step-desc">In the ATA settings, enter your VoIP.ms SIP server, username, password, and phone number. Save. The adapter will reboot and register automatically.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-body">
+        <div class="step-title">Test the phone</div>
+        <div class="step-desc">Pick up the handset. You should hear a dial tone. Call your cell phone to test outgoing calls, then call the house number to confirm it rings.</div>
+      </div>
+    </div>
+  </div>
 
-<div class="diagram">Old phone
-|
-v
-OBi200 adapter
-|
-v
-Router and internet
-|
-v
-VoIP.ms account
-|
-v
-Other phone</div>
-
-<p>The OBi200 acts like the phone company. It powers the phone and converts the call into internet data.</p>
-
+  <div class="tip-box">
+    <div class="tip-label">Pro tip</div>
+    <div class="tip-title">Set up speed dial for easy calling</div>
+    <div class="tip-desc">If your phone has speed-dial buttons, program them so kids can call family with one press. You can also tape a small contact card next to the phone.</div>
+    <div class="speed-dials">
+      <div class="speed-dial"><div class="speed-dial-num">1</div><div class="speed-dial-name">Mom</div></div>
+      <div class="speed-dial"><div class="speed-dial-num">2</div><div class="speed-dial-name">Dad</div></div>
+      <div class="speed-dial"><div class="speed-dial-num">3</div><div class="speed-dial-name">Grandma</div></div>
+      <div class="speed-dial"><div class="speed-dial-num">4</div><div class="speed-dial-name">Grandpa</div></div>
+    </div>
+  </div>
 </section>
 
-<section id="steps">
+<hr class="section-divider">
 
-<h2>Step-by-step setup</h2>
-
-<div class="step">
-<b>1. Create a VoIP.ms account</b><br>
-Sign up at voip.ms, add prepaid credit, and buy a phone number.
-</div>
-
-<div class="step">
-<b>2. Connect the hardware</b>
-
-<div class="diagram">Phone -> OBi200 -> Router</div>
-
-Plug the phone cable into the OBi200 phone port, connect ethernet to your router, and plug in power.
-</div>
-
-<div class="step">
-<b>3. Find the adapter IP address</b><br>
-
-Pick up the phone connected to the OBi200 and dial:
-
-<div class="diagram">***1</div>
-
-The device will read an IP address out loud.
-</div>
-
-<div class="step">
-<b>4. Open the settings page</b>
-
-<p>Type the IP address into a browser.</p>
-
-<div class="diagram">username: admin
-password: admin</div>
-
-</div>
-
-<div class="step">
-<b>5. Enter VoIP.ms settings</b>
-
-<p>Enter:</p>
-
-<ul>
-<li>SIP server</li>
-<li>username</li>
-<li>password</li>
-<li>phone number</li>
-</ul>
-
-<p>Save the settings.</p>
-</div>
-
-<div class="step">
-<b>6. Test the phone</b>
-
-<p>Call your cell phone. Then call the house phone number to make sure it rings.</p>
-</div>
-
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="section-eyebrow">FAQ</div>
+  <h2 class="section-h">Common questions</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">Can kids call anyone? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">Yes, by default the phone can dial any number. If you want to restrict it, you can configure dialing rules in the ATA settings, or use a phone with only speed-dial buttons so kids can only reach people you've programmed in.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is it hard to set up? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">Most people finish in 20–30 minutes. The trickiest step is logging into the ATA's settings page, but once you have the IP address it's straightforward.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How is the phone powered? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">The ATA supplies power through the phone line, just like a traditional landline wall jack. The corded phone itself needs no separate battery or power cord.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if the internet goes down? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">The phone won't work without an internet connection. This is the same limitation as any VoIP service. Keep a mobile phone on hand for emergencies.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can it call cell phones and other landlines? <span class="faq-toggle">+</span></div>
+      <div class="faq-a">Yes, it can dial any US or Canadian number, including cell phones, other landlines, and toll-free numbers. International calling is also supported through VoIP.ms at low per-minute rates.</div>
+    </div>
+  </div>
 </section>
 
-<section id="cost">
-
-<h2>Cost</h2>
-
-<div class="cost-grid">
-<div class="cost-card">
-<h3>Initial setup cost</h3>
-<table>
-<tr>
-<th>Item</th>
-<th>Typical Cost</th>
-</tr>
-<tr>
-<td>Old slimline phone</td>
-<td>$10 - $30</td>
-</tr>
-<tr>
-<td>OBi200 adapter</td>
-<td>$25 - $60</td>
-</tr>
-<tr>
-<td>VoIP.ms account funding</td>
-<td>$10 starting credit</td>
-</tr>
-<tr>
-<td><b>Total to get started</b></td>
-<td><b>About $45 - $100</b></td>
-</tr>
-</table>
-</div>
-
-<div class="cost-card">
-<h3>Recurring cost</h3>
-<table>
-<tr>
-<th>Item</th>
-<th>Typical Cost</th>
-</tr>
-<tr>
-<td>VoIP.ms phone number</td>
-<td>About $1 per month</td>
-</tr>
-<tr>
-<td>Light calling usage</td>
-<td>About $1 - $3 per month</td>
-</tr>
-<tr>
-<td><b>Ongoing total</b></td>
-<td><b>Usually $2 - $4 per month</b></td>
-</tr>
-</table>
-</div>
-</div>
-
-</section>
-
-<section>
-
-<h2>Make it kid-friendly</h2>
-
-<p>Add speed dial buttons so kids can easily call family.</p>
-
-<div class="diagram">1 -> Mom
-2 -> Dad
-3 -> Grandma
-4 -> Grandpa</div>
-
-<p>You can also tape a small contact card next to the phone.</p>
-
-</section>
-
-<section id="faq">
-
-<h2>Frequently asked questions</h2>
-
-<b>Can kids call anyone?</b>
-<p>Yes by default. You can limit dialing or only use speed dial buttons.</p>
-
-<b>Who powers the phone?</b>
-<p>The OBi200 supplies the phone-line power just like a traditional landline.</p>
-
-<b>Is this difficult to set up?</b>
-<p>Most people can set it up in about 20-30 minutes.</p>
-
-</section>
-
-<section id="buy">
-
-<h2>Old phones you can buy on eBay</h2>
-
-<p>These are example listings for old corded phones and speed-dial phones that fit this project. Listings and prices change over time.</p>
-
-<div class="buy-list">
-<div class="buy-card">
-<img src="trimline.webp" alt="Blue trimline style phone">
-<h3>Blue trimline-style phone</h3>
-<p>A simple old-school corded phone in the trimline style.</p>
-<p><b>Total after shipping: $14.99</b></p>
-<p><a href="https://www.ebay.com/itm/191685367495?_trkparms=itmf%3D1%26aid%3D1110006%26rkt%3D4%26mech%3D1%26algv%3DSimVIDwebV4WithCtxRankerV1UnifiedFeaturesOpt%26pmt%3D1%26amclksrc%3DITM%26sd%3D257127719134%26sid%3DAQALAAAAEGfRL%2FleZf%2BlHEXq%2FpW76%2Fk%3D%26itm%3D191685367495%26noa%3D0%26plcampt%3D0%3A12206705014%26algo%3DHOMESPLICE.SIM%26brand%3DBlue%26asc%3D20231107084023%26ao%3D1%26rk%3D1%26pid%3D101875%26b%3D1%26mehot%3Dnone%26lsid%3D0%26meid%3Dec44077bae214f31ba092da81296d12a%26pg%3D2332490&_trksid=p2332490.c101875.m1851&itmprp=cksum%3A191685367495ec44077bae214f31ba092da81296d12a%7Cenc%3AAQALAAABELNK5VlCGWE7qhvymTdtADcEIM1m--Lb8lvmE724T5%252FtnsMQcvwmWo9Mvv%252BcaShure8dgbTuUpxrB2huutP1tONKady0Hwe5%252B3qPdRmvYBoV1buYZqfrmFR%252FneBtN%252Bg1DvHCH99Z9uJP8BFE0ei8uv2oW6mWf8OTodvRgJpuoWALvEYpM267KrxAJBhB3Mvha05f2NhFTD9crAp4NbmNE3ELZs1AqH5ZsQxI4TrZpCtbfJMTiLzCrI06p6ZGwVNoT%252BYhVX34t6T1BMu8K8%252Byv3uo11GxfjZ4JrqLc%252BqkoJlo7c67TkcnQ9Mc%252BOcEjEuzqc8MDuH0%252Fy9qDDvymclIucd9bj9lCBHbw0jW%252Frj%252BU4Dr%7Campid%3APL_CLK%7Cclp%3A2332490&itmmeta=01KKVPMM34P2F8D0P8DB819Q42">View eBay listing</a></p>
-</div>
-
-<div class="buy-card">
-<img src="trimline2.webp" alt="Speed dial corded phone">
-<h3>Speed-dial desk phone</h3>
-<p>A corded phone with speed-dial buttons for kids to reach regular contacts fast.</p>
-<p><b>Total after shipping: $28.86</b></p>
-<p><a href="https://www.ebay.com/itm/188093020223?_skw=phone+with+speed+dial&itmmeta=01KKVP9BHPGSVYQH40MBP9WVJX&hash=item2bcb37b83f:g:txoAAeSwKD9pnlyj&itmprp=enc%3AAQALAAAA8GfYFPkwiKCW4ZNSs2u11xB7RsKMG4Lxz0Vg4VTkmOYO98qIHjJl1vCY1YzeSLHfZhoINkAb6TVfBzmvg%2Fy7fzcZwY8D3nbuUvJ0Bjh8YKnz9Un3aAkSmnnZchfk218asfGfy6YlpztW5p7aDad6ZVhGQXYDhVFG5U%2B1OF1ouzlYtklsZJpfVGo%2BiaLxTb0DnTwgPX2x2dZc%2B1Yp6xy2JJWZ0gq3uHlGOKBZohatHHGsUKiWjqJMl8%2FsZhl78AfLBkrf96G1pkShq9X0ReIMez0W3NoZCFytGFs731p3EBdxMogU3FIxMnZ2IpQB0c7h5g%3D%3D%7Ctkp%3ABk9SR_i4pfaeZw">View eBay listing</a></p>
-</div>
-
-<div class="buy-card">
-<img src="trimline2.webp" alt="AT&T trimline phone">
-<h3>AT&amp;T trimline phone</h3>
-<p>An old AT&amp;T trimline option similar to the photo used above.</p>
-<p><b>Total after shipping: $14.44</b></p>
-<p><a href="https://www.ebay.com/itm/298121601428?_trkparms=itmf%3D1%26aid%3D1110006%26rkt%3D4%26mech%3D1%26algv%3DSimVIDwebV4WithCtxRankerV1UnifiedFeaturesOpt%26pmt%3D1%26amclksrc%3DITM%26sd%3D176479309202%26sid%3DAQALAAAAEKYB3Tmt6Xuu17vBZeOpqxc%3D%26itm%3D298121601428%26noa%3D0%26plcampt%3D0%3A150615578019%26algo%3DHOMESPLICE.SIM%26brand%3DAT%26T%26asc%3D20231107084023%26ao%3D1%26rk%3D1%26pid%3D101875%26b%3D1%26mehot%3Dnone%26lsid%3D0%26meid%3Dd1619151a7704e6b8a0578384320fcf7%26pg%3D2332490&_trksid=p2332490.c101875.m1851&itmprp=cksum%3A298121601428d1619151a7704e6b8a0578384320fcf7%7Cenc%3AAQALAAABELNK5VlCGWE7qhvymTdtADcEIM1m--Lb8lvmE724T5%252FtnsMQcvwmWo9Mvv%252BcaShurdIuswf7ZK7g2oFOlkC8nTxcmj5sh8A6%252BlrRO8Ywqna6Pzlidtl1lvY1eeHRQGvWmv%252FP7tbjaFFFnQ6Xd9MBGCnfR3wHR3hpGA9qFMc%252BXsILm%252FbfXxswlGSOtxkdqA27MFLrKb406p7Ms2%252FsZMAG52e7xa8Ka7tmpbzqH92NX0uqyGwplaHVHiUoXVSth0sjBQLY7l9eTFT3JvpLqcKXqJMTrTXosSd3r5Bsmxd%252BEv2J9BkTxL0iXJQyWJqJLJMWKXpKkDPndbDSuvdUFML%252BqhxDGjoj7EbNrXfDX%252FSIHfE5%7Campid%3APL_CLK%7Cclp%3A2332490&itmmeta=01KKVPF8SHK6VEMKH8W5794WWB">View eBay listing</a></p>
-</div>
-
-<div class="buy-card">
-<img src="trimline2.webp" alt="Beige AT&T trimline phone">
-<h3>Another AT&amp;T speed-dial option</h3>
-<p>A second old-school AT&amp;T phone listing to compare style and price.</p>
-<p><b>Total after shipping: $25.99</b></p>
-<p><a href="https://www.ebay.com/itm/176479309202?_trkparms=itmf%3D1%26aid%3D1110006%26rkt%3D4%26mech%3D1%26algv%3DSimVIDwebV4WithCtxRankerV1UnifiedFeaturesOpt%26pmt%3D1%26amclksrc%3DITM%26sd%3D376838672284%26sid%3DAQALAAAAECaKDbFxckpxnNuYwpvf6UA%3D%26itm%3D176479309202%26noa%3D0%26plcampt%3D0%3A12361925016%2C5%3AAG8139981486%26algo%3DHOMESPLICE.SIM%26brand%3DAT%26T%26asc%3D20231107084023%26ao%3D1%26rk%3D2%26pid%3D101875%26b%3D1%26mehot%3Dnone%26lsid%3D0%26meid%3D83cabf86ef55445ba025eb89fbe4f580%26pg%3D2332490&_trksid=p2332490.c101875.m1851&itmprp=cksum%3A17647930920283cabf86ef55445ba025eb89fbe4f580%7Cenc%3AAQALAAABELNK5VlCGWE7qhvymTdtADcEIM1m--Lb8lvmE724T5%252FtnsMQcvwmWo9Mvv%252BcaShurbmJ3ZQGrYMV2a%252BhiGa7Mic%252FiQiP25UQ3yPYFMHzTmAl35J32TnrPg05nSEPdbHC%252BRNMi7rfJRst7OLEk0fGJUGUBpUV0awHi0TylBFzRuZke6OMKTsGkYgg%252BMpLNQ5VnGtnIWXSfGpVTOkrHLvU6y1i8FW5XnAP2ZY22BL4GXIZiln9%252BUhg%252FSzYMYfNJz%252BySJhcIuGTMIt0WarUzLfg3O9YlEuUbE5jvJ%252BWI%252FxggIllvm5ReDsfUqZV4HiodR1Vi8mw%252FtYlbJUGPA0CQ9nYy8G%252B8qX2OP87tnF9L%252B8w87YE%7Campid%3APL_CLK%7Cclp%3A2332490&itmmeta=01KKVPC57JCCJ7T0QJWEKGAA7H">View eBay listing</a></p>
-</div>
-</div>
-
-</section>
-
-</div>
-
+<!-- FOOTER -->
 <footer>
-DIY Kids House Phone Guide
+  <div class="footer-logo">Kids House Phone</div>
+  <p>A DIY guide to giving your kids a real house phone.</p>
+  <p style="margin-top:10px; font-size:11px;">Phone images used from the original project guide.</p>
+  <div style="margin-top:24px; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; display:flex; flex-direction:column; gap:8px; max-width:480px; margin-left:auto; margin-right:auto;">
+    <p style="font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.3); margin-bottom:4px;">Other ways to put it</p>
+    <p style="font-size:13px; color:rgba(255,255,255,0.5);">Stay connected without handing them a smartphone</p>
+    <p style="font-size:13px; color:rgba(255,255,255,0.5);">Call Mom. Call Dad. Call Grandma. That's it.</p>
+    <p style="font-size:13px; color:rgba(255,255,255,0.5);">A house phone for the smartphone-free years</p>
+    <p style="font-size:13px; color:rgba(255,255,255,0.5);">No apps. Just a phone.</p>
+    <p style="font-size:13px; color:rgba(255,255,255,0.5);">A phone that only does one thing: calls</p>
+    <p style="font-size:13px; color:rgba(255,255,255,0.5);">Pick up. Dial. Talk. Hang up.</p>
+    <p style="font-size:13px; color:rgba(255,255,255,0.5);">For the years before they need a smartphone</p>
+    <p style="font-size:13px; color:rgba(255,255,255,0.5);">Reach your kids. Without giving them the internet.</p>
+    <p style="font-size:13px; color:rgba(255,255,255,0.5);">One phone. Four numbers. Total peace of mind.</p>
+  </div>
 </footer>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
 
 </body>
 </html>
